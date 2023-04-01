@@ -1,17 +1,34 @@
 package ru.netology.radio;
 
 public class Radio {
-    public int currentRadioStation;
+    private int minRadioStation = 0;
+    private int maxRadioStation = 9;
+    private int currentRadioStation = minRadioStation;
+
+    public Radio (int minRadioStation, int maxRadioStation) {
+        this.minRadioStation = minRadioStation;
+        this.maxRadioStation = maxRadioStation;
+        this.currentRadioStation = minRadioStation;
+    }
+    public Radio (int size) {
+        maxRadioStation = minRadioStation + size;
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
+    public int getMinRadioStation() {
+        return minRadioStation;
+    }
+    public int getMaxRadioStation() {
+        return maxRadioStation;
+    }
 
     public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < 0) {
+        if (newCurrentRadioStation < minRadioStation) {
             return;
         }
-        if (newCurrentRadioStation > 9) {
+        if (newCurrentRadioStation > maxRadioStation) {
             return;
         }
         currentRadioStation = newCurrentRadioStation;
